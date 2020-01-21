@@ -1,17 +1,5 @@
 <div class="container">
     <div class="columns is-multiline">
-        <div class="card column is-one-third" *ngFor="let m of movies$ | async">
-            <div class="card-image">
-                <figure class="image">
-                    <img src="{{ m.poster }}" alt="{{ m.title }}">
-                </figure>
-            </div>
-            <div class="card-content">
-                <div class="content">
-                    <p class="title">{{ m.title }}</p>
-                    {{ m.plot }}
-                </div>
-            </div>
-        </div>
+        <movie-list-item-el (select)="logSelectionAndLikes($event)" [movie]="m" class="column is-one-third" *ngFor="let m of movies$ | async"></movie-list-item-el>
     </div>
 </div>

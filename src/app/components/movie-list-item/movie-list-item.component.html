@@ -8,8 +8,13 @@
       <div class="content">
           <p class="title">{{ movie.title }}</p>
           <p>{{ movie.plot }}</p>
-          <button class="button is-primary" (click)="select.emit(movie)">Select</button>
+          <button class="button is-primary" routerLink="/movies/{{ movie.id }}" (click)="select.emit(movie)">Select</button>
 
       </div>
   </div>
+
+  <footer class="card-footer">
+    <span class="card-footer-item">{{ views }} views</span>
+    <span class="card-footer-item">{{ likes }} likes</span>
+  </footer>
 </div>

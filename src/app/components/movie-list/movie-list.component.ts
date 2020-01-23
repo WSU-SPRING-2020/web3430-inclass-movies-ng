@@ -9,7 +9,6 @@ import { Movie } from 'src/app/models/movie';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  private data = {}
   movies$ : Observable<Movie[]>
   constructor(private movieService : MovieService) { }
 
@@ -18,17 +17,7 @@ export class MovieListComponent implements OnInit {
   }
 
   logSelectionAndLikes(movie : Movie, like : boolean = false){
-    if(this.data[movie.id] === undefined){
-      this.data[movie.id] = [like ? 0 : 1, like ? 1 : 0]
-    }else{
-      if(like){
-        this.data[movie.id][1]++;
-      }else{
-        this.data[movie.id][0]++;
-      }
-    }
-
-    // console.log(this.data)
+    this.movieService.logStats(movie.id, like);
   }
 
 }

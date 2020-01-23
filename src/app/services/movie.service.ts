@@ -3,6 +3,28 @@ import { Movie } from '../models/movie';
 import { Injectable } from '@angular/core';
 @Injectable()
 export class MovieService {
+    private stats : {} = {}
+
+    getStatsFor(id: number, like : boolean = false) : number {
+      if(this.stats[id]){
+        return like ? this.stats[id]['likes'] : this.stats[id]['views']
+      } else {
+        return 0
+      }
+    }
+
+    logStats(id : number, like : boolean = false){
+      if(this.stats[id] === undefined){
+        this.stats[id] = { views: like ? 0 : 1, likes: like ? 1 : 0 }
+      }else{
+        if(like){
+          this.stats[id]['likes']++;
+        }else{
+          this.stats[id]['views']++;
+        }
+      }
+    }
+
     getMovies() : Observable<Movie[]> {
         return of([
             {

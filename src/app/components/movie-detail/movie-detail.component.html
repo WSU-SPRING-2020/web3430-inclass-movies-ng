@@ -1,1 +1,15 @@
-<p>movie-detail works!</p>
+<div class="container" *ngIf="movie$ | async as m">
+  <div class="columns">
+    <div class="column is-one-quarter">
+      <img src="{{ m.poster }}" alt="movie poster">
+    </div>
+    <div class="column is-three-quarters">
+      <p class="title">{{ m.title }}</p>
+      <p>{{ m.plot }}</p>
+      <div class="buttons">
+        <button routerLink="/movies/{{ m.id }}/edit" class="button is-primary">Edit</button>
+        <button class="button is-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

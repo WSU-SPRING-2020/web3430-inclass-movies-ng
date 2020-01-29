@@ -8,6 +8,8 @@
       <div class="content">
           <p class="title">{{ movie.title }}</p>
           <p>{{ movie.plot }}</p>
+
+          <input type="text" [(ngModel)]="movie.title">
           <button class="button is-primary" routerLink="/movies/{{ movie.id }}" (click)="select.emit(movie)">Select</button>
 
       </div>

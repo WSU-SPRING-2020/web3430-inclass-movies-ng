@@ -1,4 +1,5 @@
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { Movie } from '../models/movie';
 import { Injectable } from '@angular/core';
 @Injectable()
@@ -23,6 +24,16 @@ export class MovieService {
           this.stats[id]['views']++;
         }
       }
+    }
+
+    getMovie(id): Observable<Movie>{
+      return this.getMovies().pipe(
+        map(
+          (movies: Movie[]) => movies.find(
+            (movie : Movie) => movie.id === +id
+          )
+        )
+      )
     }
 
     getMovies() : Observable<Movie[]> {

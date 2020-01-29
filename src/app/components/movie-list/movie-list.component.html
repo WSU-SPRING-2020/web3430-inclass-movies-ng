@@ -1,5 +1,10 @@
 <div class="container">
+    <div class="buttons is-pulled-right">
+        <button (click)="sortBy('title')" class="button">Sort by title</button>
+        <button (click)="sortBy('id')" class="button">Sort by id</button>
+        <button routerLink="/movies/new" class="button is-primary">Add new movie</button>
+    </div>
     <div class="columns is-multiline">
-        <movie-list-item-el (select)="logSelectionAndLikes($event)" [movie]="m" class="column is-one-third" *ngFor="let m of movies$ | async"></movie-list-item-el>
+        <movie-list-item-el (select)="logSelectionAndLikes($event)" [movie]="m" class="column is-one-third" *ngFor="let m of sortMovies(movies$ | async)"></movie-list-item-el>
     </div>
 </div>

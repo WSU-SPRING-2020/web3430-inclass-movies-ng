@@ -1,11 +1,19 @@
 <div class="container">
-  <p class="title">Add a new movie</p>
+  <div *ngIf="isEdit; then editTitle else addTitle"></div>
+  <ng-template #editTitle>
+    <p class="title">Edit a movie</p>
+  </ng-template>
+  <ng-template #addTitle>
+    <p class="title">Add a new movie</p>
+  </ng-template>
+  
   <form #f="ngForm" [formGroup]="movieForm" (ngSubmit)="submitForm(f)">
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
           <label for="imdbID" class="label">IMDB ID</label>
           <div class="control">
+            <input type="hidden" formControlName="id">
             <input type="text" class="input" formControlName="imdbID">
           </div>
           <p class="help is-danger" *ngIf="f.submitted && imdbID.invalid">

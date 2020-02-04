@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import { Movie } from 'src/app/models/movie';
+import { ToastrService } from 'ngx-toastr';
+import {rangeValidator} from '../../validators/rage.validator'
 
 @Component({
   selector: 'app-movie-form',
@@ -13,7 +16,9 @@ export class MovieFormComponent implements OnInit {
   isEdit : boolean
   constructor(private route : ActivatedRoute,
     private movieService : MovieService,
-    private fb : FormBuilder) { }
+    private fb : FormBuilder,
+    private router : Router,
+    private toastr : ToastrService) { }
 
   ngOnInit() {
     this.movieForm = this.fb.group({
@@ -24,7 +29,7 @@ export class MovieFormComponent implements OnInit {
       genre: [null, Validators.required],
       plot: [null, Validators.required],
       poster: [null, [Validators.required, Validators.pattern(/https?:\/\/.+(svg|jpg|png|gif)/)]],
-      rating: [null, Validators.pattern(/^1?\d(\.\d\d)?$/)],
+      rating: [0.0, [Validators.pattern(/^1?\d(\.\d\d)?$/), rangeValidator(0, 10)]],
       votes: [0, Validators.pattern(/^\d+$/)],
       imdbID: [null, Validators.required]
     })
@@ -49,8 +54,21 @@ export class MovieFormComponent implements OnInit {
   get imdbID() { return this.movieForm.get('imdbID') }
 
   submitForm(f : NgForm){
+    console.log("submitted")
     if(f.valid){
-
+      const movie : Movie = Object.assign({}, this.movieForm.value)
+      if(this.isEdit){
+        this.movieService.updateMovie(movie).subscribe(data => {
+          this.toastr.success("Movie updated successfully")
+          this.router.navigate([`/movies/${movie.id}`])
+        })
+      }else{
+        console.log("submitted 2")
+        this.movieService.addMovie(movie).subscribe(data => {
+          this.toastr.success("Movie added successfully")
+          this.router.navigate(['/movies'])
+        })
+      }
     }
   }
 

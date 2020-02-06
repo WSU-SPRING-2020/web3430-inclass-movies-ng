@@ -62,6 +62,17 @@ export class MovieService {
       return of(movie)
     }
 
+    deleteMovie(movie : Movie) : Observable<Movie> {
+      for(let i in this.movies){
+        if(this.movies[i].id === movie.id){
+          this.movies.splice(+i, 1)
+          return of(movie);
+        }
+      }
+
+      return of(null)
+    }
+
     movies : Movie[] = [
       {
         "id": 102091,

@@ -8,8 +8,31 @@
       <p>{{ m.plot }}</p>
       <div class="buttons">
         <button routerLink="/movies/{{ m.id }}/edit" class="button is-primary">Edit</button>
-        <button class="button is-danger">Delete</button>
+        <button class="button is-danger" (click)="toggleConfirmDelete()">Delete</button>
       </div>
+
+      <div class="modal" [ngClass]="{'is-active': isToConfirmDelete}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Delete confirmation</p>
+            <button class="delete" aria-label="close" (click)="toggleConfirmDelete()"></button>
+          </header>
+          <section class="modal-card-body">
+            Are you sure you want to delete {{ m.title }}?
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-danger" (click)="deleteMovie(m)">Delete</button>
+            <button class="button" (click)="toggleConfirmDelete()">Cancel</button>
+          </footer>
+        </div>
+      </div>
+
+
+
+
     </div>
   </div>
+
+  <movie-review-el [movie]="m"></movie-review-el>
 </div>

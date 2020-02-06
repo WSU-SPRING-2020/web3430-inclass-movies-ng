@@ -11,7 +11,8 @@ import { MovieService } from './services/movie.service';
 import { MovieListItemComponent } from './components/movie-list-item/movie-list-item.component';
 import { routes } from './routes';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { MovieFormComponent } from './components/movie-form/movie-form.component'
+import { MovieFormComponent } from './components/movie-form/movie-form.component';
+import { MovieReviewComponent } from './components/movie-review/movie-review.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MovieFormComponent } from './components/movie-form/movie-form.component
     MovieListComponent,
     MovieListItemComponent,
     MovieDetailComponent,
-    MovieFormComponent
+    MovieFormComponent,
+    MovieReviewComponent
   ],
   imports: [
     BrowserModule,

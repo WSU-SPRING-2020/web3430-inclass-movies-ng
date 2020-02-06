@@ -1,3 +1,5 @@
+import { Review } from './review'
+
 export class Movie {
     id : number
     title : string
@@ -9,5 +11,5 @@ export class Movie {
     rating : number
     votes : number
     imdbID : string
-    reviews?: []
+    reviews?: Review[]
 }

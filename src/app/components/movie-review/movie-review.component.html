@@ -1,0 +1,42 @@
+<hr>
+<p class="title">Movie reviews</p>
+<article class="media" *ngFor="let r of movie.reviews">
+  <figure class="media-left">
+    <p class="image">
+      <img src="http://via.placeholder.com/64.png" alt="">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        {{ r.comment }} <br>
+        <small>Posted at {{ r.postedAt | date: 'MMMM, dd yyyy' }}</small>
+      </p>
+    </div>
+  </div>
+</article>
+<article class="media">
+  <figure class="media-left">
+    <p class="image">
+      <img src="http://via.placeholder.com/64.png" alt="">
+    </p>
+  </figure>
+  <div class="media-content">
+    <form #f="ngForm" (ngSubmit)="submitForm(f)">
+      <div class="field">
+        <textarea class="textarea" required name="comment" id="comment" 
+                  #c="ngModel" [(ngModel)]="comment"></textarea>
+
+        <p class="help is-danger" *ngIf="f.submitted && c.invalid">
+          Comment is required.
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button is-primary">Post review</button>
+          <button class="button" type="reset">Cancel</button>
+        </p>
+      </div>
+    </form>
+  </div>
+</article>

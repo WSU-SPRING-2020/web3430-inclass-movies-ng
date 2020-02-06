@@ -1,6 +1,6 @@
-import { ValidatorFn, AbstractControl } from '@angular/forms'
+import { ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms'
 export function rangeValidator(min : number, max :number) : ValidatorFn {
-  return (control : AbstractControl) : {[ key : string] :any} | null => {
+  return (control : AbstractControl) : ValidationErrors | null => {
     let value = parseFloat(control.value)
 
     return value === NaN || value < min || value > max ?

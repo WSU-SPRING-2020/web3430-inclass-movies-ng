@@ -41,12 +41,32 @@
         </div>
 
         <div class="field">
+          <label for="rated" class="label">Rated</label>
+          <div class="control">
+            <input type="text" class="input" formControlName="rated">
+          </div>
+          <p class="help is-danger" *ngIf="f.submitted && rated.invalid">
+            Rated is required.
+          </p>
+        </div>
+
+        <div class="field">
           <label for="rating" class="label">Rating</label>
           <div class="control">
             <input type="text" class="input" formControlName="rating">
           </div>
           <p class="help is-danger" *ngIf="f.submitted && rating.invalid">
             Rating must be between 0.0 and 10.0.
+          </p>
+        </div>
+
+        <div class="field">
+          <label for="votes" class="label">Votes</label>
+          <div class="control">
+            <input type="text" class="input" formControlName="votes">
+          </div>
+          <p class="help is-danger" *ngIf="f.submitted && votes.invalid">
+            Votes must be positive.
           </p>
         </div>
       </div>

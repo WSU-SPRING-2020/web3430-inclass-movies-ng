@@ -11,5 +11,6 @@ export class Movie {
     rating : number
     votes : number
     imdbID : string
+    releaseDate: Date
     reviews?: Review[]
 }

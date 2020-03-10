@@ -85,6 +85,7 @@ export class MovieService {
         "rating": 9.3,
         "votes": 1078045,
         "imdbID": "tt0111161",
+        "releaseDate": new Date("1994-09-22"),
         "reviews": []
       },
       {
@@ -98,6 +99,7 @@ export class MovieService {
         "rating": 9.2,
         "votes": 762332,
         "imdbID": "tt0068646",
+        "releaseDate": new Date("1972-03-24"),
         "reviews": []
       },
       {
@@ -111,6 +113,7 @@ export class MovieService {
         "rating": 9.0,
         "votes": 496772,
         "imdbID": "tt0071562",
+        "releaseDate": new Date("1974-12-20"),
         "reviews": []
       },
       {
@@ -124,6 +127,7 @@ export class MovieService {
         "rating": 9.0,
         "votes": 843376,
         "imdbID": "tt0110912",
+        "releaseDate": new Date("1994-10-14"),
         "reviews": []
       },
       {
@@ -137,6 +141,7 @@ export class MovieService {
         "rating": 9.0,
         "votes": 325579,
         "imdbID": "tt0060196",
+        "releaseDate": new Date("1967-12-29"),
         "reviews": []
       },
       {
@@ -150,6 +155,7 @@ export class MovieService {
         "rating": 9.0,
         "votes": 1050810,
         "imdbID": "tt0468569",
+        "releaseDate": new Date("2008-07-18"),
         "reviews": []
       },
       {
@@ -162,6 +168,7 @@ export class MovieService {
         "poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
         "rating": 8.9,
         "votes": 266350,
+        "releaseDate": new Date("1957-04-10"),
         "imdbID": "tt0050083",
         "reviews": []
       },
@@ -176,6 +183,7 @@ export class MovieService {
         "rating": 8.9,
         "votes": 553804,
         "imdbID": "tt0108052",
+        "releaseDate": new Date("1994-02-04"),
         "reviews": []
       },
       {
@@ -189,6 +197,7 @@ export class MovieService {
         "rating": 8.9,
         "votes": 767958,
         "imdbID": "tt0167260",
+        "releaseDate": new Date("2003-12-17"),
         "reviews": []
       },
       {
@@ -202,6 +211,7 @@ export class MovieService {
         "rating": 8.8,
         "votes": 819812,
         "imdbID": "tt0137523",
+        "releaseDate": new Date("1999-09-10"),
         "reviews": [] 
       }
     ]
